@@ -7,5 +7,7 @@ public class LeitorDeConsole {
         float x = scanner.nextFloat();
         Float number = x;
         System.out.printf("Você digitou: %.2f\n", number);
+
+        scanner.close();
     }
 }

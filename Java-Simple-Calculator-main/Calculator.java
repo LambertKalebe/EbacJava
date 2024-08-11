@@ -26,5 +26,7 @@ public class Calculator {
         } else {
             System.out.println("Invalid operator. Please enter one of the following: +, -, *, /.");
         }
+
+        readInput.close();
     }
 }

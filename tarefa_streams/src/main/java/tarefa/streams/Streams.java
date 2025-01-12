@@ -1,4 +1,4 @@
-package Tarefa_Streams;
+package tarefa.streams;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +19,24 @@ public class Streams {
         String input = scanner.nextLine();
         String[] nameGenderPairs = input.split(",");
 
+        Map<String, List<String>> groupedNames = groupNamesByGender(nameGenderPairs);
+
+        // Lista de gêneros femininos considerados
+        List<String> femaleGenders = List.of("feminino", "femino", "mulher", "m", "f");
+
+        // Filtragem de nomes femininos
+        List<String> femaleNames = filterFemaleNames(groupedNames, femaleGenders);
+
+        if (!femaleNames.isEmpty()) {
+            System.out.println("Nomes Femininos: " + femaleNames);
+        } else {
+            System.out.println("Nenhum nome feminino encontrado.");
+        }
+
+        scanner.close();
+    }
+
+    public static Map<String, List<String>> groupNamesByGender(String[] nameGenderPairs) {
         Map<String, List<String>> groupedNames = new HashMap<>();
 
         for (String pair : nameGenderPairs) {
@@ -30,22 +48,14 @@ public class Streams {
             groupedNames.computeIfAbsent(gender, k -> new ArrayList<>()).add(name);
         }
 
-        // Lista de gêneros femininos considerados
-        List<String> femaleGenders = List.of("feminino", "femino", "mulher", "m", "f");
+        return groupedNames;
+    }
 
-        // Filtragem de nomes femininos
-        List<String> femaleNames = groupedNames.entrySet().stream()
+    public static List<String> filterFemaleNames(Map<String, List<String>> groupedNames, List<String> femaleGenders) {
+        return groupedNames.entrySet().stream()
                 .filter(entry -> femaleGenders.contains(entry.getKey()))
                 .flatMap(entry -> entry.getValue().stream())
                 .sorted()
                 .collect(Collectors.toList());
-
-        if (!femaleNames.isEmpty()) {
-            System.out.println("Nomes Femininos: " + femaleNames);
-        } else {
-            System.out.println("Nenhum nome feminino encontrado.");
-        }
-
-        scanner.close();
     }
 }

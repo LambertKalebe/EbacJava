@@ -6,6 +6,12 @@ package br.com.rpires.service;
 public interface IContratoService {
     String salvar();
 
-    //TODO
-    //Fazer métodos de buscar, excluir e atualizar
+    // Metodo buscar
+    String buscar();
+
+    // Metodo excluir
+    String excluir();
+
+    // Metodo atualizar
+    String atualizar();
 }

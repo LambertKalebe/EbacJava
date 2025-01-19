@@ -6,6 +6,12 @@ package br.com.rpires.dao;
 public interface IContratoDao {
     void salvar();
 
-    //TODO
-    //Fazer métodos de buscar, excluir e atualizar
+    // Metodo buscar
+    void buscar();
+
+    // Metodo excluir
+    void excluir();
+
+    // Metodo atualizar
+    void atualizar();
 }

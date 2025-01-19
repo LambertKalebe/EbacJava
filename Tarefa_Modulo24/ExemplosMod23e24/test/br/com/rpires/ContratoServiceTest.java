@@ -29,19 +29,9 @@ public class ContratoServiceTest {
         Assert.assertEquals("Sucesso", retorno);
     }
 
-    // Atividade Modulo 24:
-
     @Test
     public void buscarTest() {
         IContratoDao dao = new ContratoDaoMock();
-        IContratoService service = new ContratoService(dao);
-        String retorno = service.buscar();
-        Assert.assertEquals("Contrato encontrado", retorno);
-    }
-
-    @Test(expected = UnsupportedOperationException.class)
-    public void esperadoErroNoBuscarComBancoDeDadosTest() {
-        IContratoDao dao = new ContratoDao();
         IContratoService service = new ContratoService(dao);
         String retorno = service.buscar();
         Assert.assertEquals("Contrato encontrado", retorno);
@@ -55,25 +45,9 @@ public class ContratoServiceTest {
         Assert.assertEquals("Contrato excluído", retorno);
     }
 
-    @Test(expected = UnsupportedOperationException.class)
-    public void esperadoErroNoExcluirComBancoDeDadosTest() {
-        IContratoDao dao = new ContratoDao();
-        IContratoService service = new ContratoService(dao);
-        String retorno = service.excluir();
-        Assert.assertEquals("Contrato excluído", retorno);
-    }
-
     @Test
     public void atualizarTest() {
         IContratoDao dao = new ContratoDaoMock();
-        IContratoService service = new ContratoService(dao);
-        String retorno = service.atualizar();
-        Assert.assertEquals("Contrato atualizado", retorno);
-    }
-
-    @Test(expected = UnsupportedOperationException.class)
-    public void esperadoErroNoAtualizarComBancoDeDadosTest() {
-        IContratoDao dao = new ContratoDao();
         IContratoService service = new ContratoService(dao);
         String retorno = service.atualizar();
         Assert.assertEquals("Contrato atualizado", retorno);

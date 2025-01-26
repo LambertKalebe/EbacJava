@@ -1,0 +1,1 @@
+Projeto feito com base no exemplo disponibilizado pelo professor, foram encontrados alguns erros, provavelmente devido a utilização do VSCode (Sem configuração), entretanto, acredito que os testes possam ser executados corretamente.
